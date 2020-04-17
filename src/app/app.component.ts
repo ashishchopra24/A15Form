@@ -8,13 +8,16 @@ import {NgForm} from '@angular/forms';
 })
 export class AppComponent {
 
-  @ViewChild('f', {static: false}) form: NgForm;
+  @ViewChild('f', {static: false}) dataForm: NgForm;
   suggestUserName() {
     const suggestedName = 'Superuser';
+    this.dataForm.form.patchValue(
+      {username: suggestedName}
+    );
   }
 
 
   onSubmit() {
-    console.log(this.form);
+    console.log(this.dataForm);
   }
 }
